@@ -14,16 +14,21 @@ class ContextProvider extends React.Component{
         //     imageUrl : this.state.imageUrl,
         //     description: this.state.description
         // }
-        //creating the post request 
+        // creating the post request 
         axios.post('https://api.vschool.io/Camila/thing', post)
-        .then(response => setState(prevState=>{
+        .then(response => this.setState(prevState=>{
             return {
                 uglyThings:[response, ...prevState.uglyThings]
 
             }
         }))
         .catch(err => console.log(err))
-    }
+            console.log(this.uglyThings)
+        }
+
+        componentDidMount(){
+            
+        }
 
     // component did mount for get request 
     //SET state for ugly things 

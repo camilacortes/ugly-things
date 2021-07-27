@@ -2,10 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import {ContextProvider} from './ContextProvider.js'
 
 ReactDOM.render(
   <div>
-    <App />
+    <ContextProvider>
+      <App/>
+    </ContextProvider>
+        
   </div>,
   document.getElementById('root')
 );
