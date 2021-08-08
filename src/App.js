@@ -9,13 +9,13 @@ class App extends Component {
       <div>
         <ContextConsumer>
           {value =>{
-            const RenderList = value.items.map(thing => {
-              <RenderList thing={thing}/>
+            const renderList = value.items.map(thing => {
+              return <RenderList thing={thing} data={value.data} key='1' />
             })
       return(
         <div>
-          <Inputs submitForm={value.submitForm}/>
-          <div>{RenderList}</div>
+          <Inputs />
+          <div>{renderList}</div>
         </div>
       )
           }}

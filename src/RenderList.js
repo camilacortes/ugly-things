@@ -7,10 +7,10 @@ class RenderList extends React.Component{
         return(
             <>
             <div className="title-container">
-               <h1>Place holder text</h1>
+                {/* <h1>{this.props.data.title}</h1> */}
+               <h1>{this.props.thing}</h1>
             </div>
             <div className="desc-container">
-               <p>Description</p>
             </div>
             </>
         )

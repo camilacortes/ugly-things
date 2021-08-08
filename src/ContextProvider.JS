@@ -1,44 +1,38 @@
 import React from 'react'
+// import RenderList from './RenderList'
 const axios = require('axios')
 
 const {Provider, Consumer} = React.createContext()
 
 class ContextProvider extends React.Component{
     state={
-        uglyThings: []
+    uglyThings: [],
+        data: []
     }
 
-    submitForm=(post)=>{
-        // let post = {
-        //     title: this.state.title,
-        //     imageUrl : this.state.imageUrl,
-        //     description: this.state.description
-        // }
-        // creating the post request 
-        axios.post('https://api.vschool.io/Camila/thing', post)
-        .then(response => this.setState(prevState=>{
-            return {
-                uglyThings:[response, ...prevState.uglyThings]
-
-            }
-        }))
-        .catch(err => console.log(err))
-            console.log(this.uglyThings)
-        }
+    
 
         componentDidMount(){
-            
+             axios.get('https://api.vschool.io/Camila/thing')
+            .then(response => 
+                this.setState({
+                 data: response.data}))
+            .catch(err => console.log(err))
         }
 
-    // component did mount for get request 
     //SET state for ugly things 
 
  render(){
+    //  console.log(this.state.data[0])
     return(
-        <Provider value={{items: this.state.uglyThings, submitForm: this.submitForm}}>
+        <>
+        <Provider value={{items: this.state.uglyThings, data: this.state.data}}>
             {this.props.children}
         </Provider>
+        </>
+        
     )
+   
  }
 }
 
