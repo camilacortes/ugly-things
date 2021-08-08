@@ -10,11 +10,15 @@ class App extends Component {
         <ContextConsumer>
           {value =>{
             const renderList = value.items.map(thing => {
-              return <RenderList thing={thing} data={value.data} key='1' />
+              return <RenderList 
+              thing={thing} title={thing.title} 
+              description={thing.description} 
+              imgUrl={thing.imgUrl}
+              data={value.data} key='1' />
             })
       return(
         <div>
-          <Inputs />
+          <Inputs id={value.items}/>
           <div>{renderList}</div>
         </div>
       )

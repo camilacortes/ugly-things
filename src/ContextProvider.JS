@@ -18,12 +18,12 @@ class ContextProvider extends React.Component{
                 this.setState({
                  data: response.data}))
             .catch(err => console.log(err))
+            // console.log('data', this.state.data)
         }
 
     //SET state for ugly things 
 
  render(){
-    //  console.log(this.state.data[0])
     return(
         <>
         <Provider value={{items: this.state.uglyThings, data: this.state.data}}>
