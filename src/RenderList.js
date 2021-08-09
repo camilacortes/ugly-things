@@ -6,12 +6,17 @@ class RenderList extends React.Component{
     render(){
         return(
             <>
+            <div className="box">
             <div className="title-container">
-               <h1>{this.props.thing.title}</h1>
+               <h1>Title: {this.props.thing.title}</h1>
             </div>
             <div className="desc-container">
-            {/* <h1>{this.props.thing.description}</h1> */}
+            <p>Description: {this.props.thing.description}</p>
              </div>
+             <div className="image-container">
+            <p>Image: </p> <img src="+{this.props.imgUrl}+"/>
+             </div>
+                </div>
             </>
         )
     }

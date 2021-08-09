@@ -15,8 +15,8 @@ class Inputs extends React.Component{
             .then(response => response.data) 
             .catch(err => console.log(err.response.data))  
         // pushing state onto ugly things array
-        this.props.id.push(this.state)    
-        console.log('ugly things array' , this.props.id)
+        // this.props.id.push(this.state)    
+        // console.log('ugly things array' , this.props.id)
     }
         
    
