@@ -1,8 +1,12 @@
+import axios from 'axios'
 import React ,{ useContext} from 'react'
 import { Context } from './ContextProvider.js'
 
 function Inputs(){
     const {inputs, submitForm, handleChange} = useContext(Context)
+
+   
+
     return(
         <>
             <div className="form-container">

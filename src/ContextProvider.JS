@@ -12,13 +12,17 @@ function ContextProvider(props){
         description: ""
     })
 
-        useEffect(()=>{
+        const getUglyThings = () => {
             axios.get('https://api.vschool.io/Camila/thing')
                 .then(response => 
                     setUglyThings(response.data))
                     .catch(err => console.log(err))
-            }, [])
-            console.log(uglyThings)
+        }
+
+        useEffect(()=>{
+            getUglyThings()
+        }, [])
+            // console.log(uglyThings)
 
             const submitForm=()=>{
                 axios.post('https://api.vschool.io/Camila/thing/', inputs)
@@ -34,9 +38,18 @@ function ContextProvider(props){
                 }))
             } 
 
+            const handleDelete = (id) =>{
+                // console.log('clicked')
+                // console.log(id)
+                axios.delete(`https://api.vschool.io/Camila/thing/${id}`)
+                    .then(res => getUglyThings())
+                    .catch(err => console.log(err.res))
+            }
+        
+
     return(
         <>
-            <Context.Provider value={{uglyThings, submitForm, inputs, handleChange}}>
+            <Context.Provider value={{uglyThings, submitForm, inputs, handleChange, handleDelete}}>
                 {props.children}
             </Context.Provider>
         </>
