@@ -1,38 +1,19 @@
-import React, { Component } from 'react'
+import React, { useContext } from 'react'
 import Inputs from './Inputs';
 import RenderList from './RenderList';
-import {ContextConsumer} from './ContextProvider'
+import {Context} from './ContextProvider'
 
-class App extends Component {
-  render(){
+function App(props){
+  const context = useContext(Context)
+  const renderList = context.uglyThings.map(thing => {
+  return <RenderList key={thing._id} thing={thing}/>
+  })
     return(
-      <div>
-        <ContextConsumer>
-          {value =>{
-            const renderList = value.items.map(thing => {
-              return <RenderList key={this.title} thing={thing}/>
-            })
-      return(
         <div>
-          <Inputs id={value.items}/>
+          <Inputs id={context.items}/>
           <div>{renderList}</div>
         </div>
       )
-          }}
-        </ContextConsumer>
-      </div>
-    )
-
-    // // return (
-    //   <div>
-        
-  
-    //     <Inputs/>
-    //     <RenderList/>
-    //   </div>
-    // );
-  }
- 
 }
 
 export default App;

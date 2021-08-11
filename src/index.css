@@ -37,3 +37,10 @@ svg{
 .box{
   border: solid black;
 }
+
+button{
+  margin: 10px;
+  background-color: white;
+  border-color: green;
+  text-decoration: none;
+}
