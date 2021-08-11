@@ -3,9 +3,12 @@ import { Context } from './ContextProvider.js'
 
 
 function RenderList(props){
-    const {handleDelete} = useContext(Context)
-    console.log(props.thing._id)
+    const {handleDelete, handleEdit} = useContext(Context)
+
     const id = props.thing._id
+
+  
+
     return(
         <>
             <div className="box">
@@ -13,7 +16,10 @@ function RenderList(props){
                     <h1>Title: {props.thing.title}</h1>
                 </div>
                 <div className="button-container">
-                    <button>Edit</button>
+                    <button onClick={e => {
+                        e.preventDefault()
+                        handleEdit(id)
+                    }}>Edit</button>
                     <button onClick={e =>{
                         e.preventDefault()
                         handleDelete(id)
