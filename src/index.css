@@ -44,3 +44,29 @@ button{
   border-color: green;
   text-decoration: none;
 }
+
+.popup{
+  /* position: fixed; */
+  top: 0;
+  left: 0;
+  width: 100%;
+  /* height: 100vh; */
+  background-color: #D0F0CE;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-inner{
+  position: relative;
+  padding: 30px;
+  width: 100%;
+  max-width: 640px;
+  background-color: aliceblue;
+}
+
+.popup-inner .save-button{
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}

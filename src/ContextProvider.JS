@@ -39,22 +39,22 @@ function ContextProvider(props){
             } 
             //delete button
             const handleDelete = (id) =>{
-                // console.log('clicked')
-                // console.log(id)
                 axios.delete(`https://api.vschool.io/Camila/thing/${id}`)
                     .then(res => getUglyThings())
                     .catch(err => console.log(err.res))
-            }
-
-            //edit button 
-            const handleEdit = (id) =>{
-                console.log('clicked')
             }
         
 
     return(
         <>
-            <Context.Provider value={{uglyThings, submitForm, inputs, handleChange, handleDelete, handleEdit}}>
+            <Context.Provider 
+            value={{
+                uglyThings, 
+                submitForm, 
+                inputs, 
+                handleChange, 
+                handleDelete,
+                getUglyThings}}>
                 {props.children}
             </Context.Provider>
         </>
